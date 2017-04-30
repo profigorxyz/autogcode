@@ -55,7 +55,7 @@ while int(config.get('timer')) > 0:
                 '%d%m%Y%H%M%S'
             )
             filename = now
-            filename = re.sub('[\-\s\:\+]|(00)', '', filename)
+            filename = re.sub('([\-\s\:\+])|(0000)', '', filename)
             stlfilename = filename + ".stl"
             filename = filename + ".gcode"
             att_path = os.path.join(config.get('adir'), stlfilename)
