@@ -1,0 +1,17 @@
+[Unit]
+Description=Getting e-mail and coping to uploads octoprint folder
+After=multi-user.target
+
+[Service]
+Environment=WD=/path/to/autogcode
+Environment=VENV=/path/to/virtualenvironment
+Environment=SCRIPT=autogcode.py
+Environment=USER=username
+Type=simple
+User=${USER}
+WorkingDirectory=${WD}
+ExecStart= ${VENV}/bin/python3 ${WD}/${SCRIPT}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
